@@ -1,6 +1,12 @@
 require "rqrcode"
 
-qrcode = RQRCode::QRCode.new("http://github.com/dev-gois")
+puts "Enter the link where you want the ruby-qrcode generator to generate the qr for you"
+https = gets.strip
+puts "Now enter the name of the file you want to save with the QR code in the /save folder"
+file_name = gets.strip
+
+
+qrcode = RQRCode::QRCode.new("#{https}")
 
 # NOTE: showing with default options specified explicitly
 png = qrcode.as_png(
@@ -13,9 +19,12 @@ png = qrcode.as_png(
   module_px_size: 6,
   resize_exactly_to: false,
   resize_gte_to: false,
-  size: 120
+  size: 120 
 )
 
-IO.binwrite("saves/github-qrcode.png", png.to_s)
+IO.binwrite("saves/#{file_name}.png", png.to_s)
+
+puts "Link entered: #{https}"
+puts "File name entered: #{file_name}"
 
 puts png.to_s

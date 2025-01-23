@@ -1,4 +1,4 @@
-# 🔲 Ruby Qrcode Generator
+# Ruby Qrcode Generator
 
 A lightweight Ruby app to generate QR Codes from any link. Provide a link and file name, and a `.png` file will be generated in the same directory.
 
